@@ -1,0 +1,52 @@
+{
+  "name": "mergilink",
+  "version": "1.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder --win --x64"
+  },
+  "build": {
+    "productName": "MergiLink客户端",
+    "appId": "xjhya.MergiLink",
+    "asar": true,
+    "copyright": "XJHya2024",
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html"
+    ],
+    "directories": {
+      "app": "."
+    },
+    "extraResources": {
+      "from": "core.exe",
+      "to": "../core.exe"
+    },
+    "win": {
+      "icon": "./app/images/256x256.ico",
+      "target": "nsis"
+    },
+   "nsis": {    
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "./app/images/256x256.ico",
+      "uninstallerIcon": "./app/images/256x256.ico",
+      "installerHeaderIcon": "./app/images/256x256.ico",
+      "shortcutName": "MergiLink客户端"
+    }
+  },
+  "author": "XJHya",
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "electron": "^28.1.3",
+    "electron-builder": "^24.3.0"
+  }
+}

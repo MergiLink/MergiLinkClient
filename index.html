@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>MergiLink默连</title>
+    <link rel="stylesheet" href="https://link.qwqo.cn/assets/css/client.css">
+    <style>
+        .grid-form {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 4:8 ratio */
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-form select,
+        .grid-form input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+  <div id="home" style="display: block;">
+    <div class="container py-18 pt-md-14 pb-md-14">
+      <div class="row text-center">
+        <div class="col-lg-9 col-xxl-7 mx-auto">
+          <h2 class="display-1 mb-4">MergiLink默连</h2>
+          <p class="lead fs-24 lh-sm px-md-5 px-xl-15 px-xxl-10 mb-7">让联机更加简单</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span><button onclick="connect()" class="btn btn-lg btn-primary rounded-pill mx-1">连接通道</button></span>
+        <span><button onclick="goonlineweb()" class="btn btn-lg btn-outline-primary rounded-pill mx-1">控制台</button></span>
+        <span><a href="tencent://Guild?subcmd=Jump&https%3A%2F%2Fqun.qq.com%2Fqqweb%2Fqunpro%2Fshare%3F_wv%3D3%26_wwv%3D128%26appChannel%3Dshare%26inviteCode%3D22PMsfz3EcY%26businessType%3D9%26from%3D181074%26biz%3Dka%26mainSourceId%3Dshare%26subSourceId%3Dothers%26jumpsource%3Dshorturl%23%2Fp" class="btn btn-lg btn-info rounded-pill mx-1">加入QQ频道</a></span>
+      </div>
+    </div>
+  </div>
+  <div id="clients" style="display: none;">
+    <div class="container py-18 pt-md-14 pb-md-14">
+      <div class="row text-center">
+        <div class="col-lg-9 col-xxl-7 mx-auto">
+          <h2 class="display-1 mb-4">MergiLink默连</h2>
+          <br>
+          <div class="grid-form">
+            <select class="form-control" id="proxies">
+              <option value="client">客户端</option>
+              <option value="server">服务端</option>
+            </select>
+            <input type="text" class="form-control" id="token" placeholder="输入你的连接端密钥" required/>
+          </div>
+          <br>
+          <pre id="runlog" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; text-align: left;">没有日志输出</pre>
+          <br>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span id="console">
+          <button onclick="runButton()" class="btn btn-lg btn-primary rounded-pill mx-1">启动</button>
+        </span>
+        <span>
+          <button onclick="home()" class="btn btn-lg btn-outline-primary rounded-pill mx-1">返回</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
