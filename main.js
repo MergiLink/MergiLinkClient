@@ -95,6 +95,7 @@ ipcMain.on('run-client', (event, token) => {
   downloadProcess.on('close', (code) => {
     event.sender.send('exe-output', `拉取配置文件结束，状态码: ${code} <br>`);
     if (code === 0) {
+      event.sender.send('exe-output', '您现在运行的软件版本为：1.0.2<br>您现在运行的Frp内核为：0.58.1_a35ee10 <br>');
       // Run core.exe after successful download
       clientProcess = spawn('powershell.exe', ['-NoProfile', '-Command', runScript]);
 
@@ -148,6 +149,7 @@ ipcMain.on('run-server', (event, token) => {
   downloadProcess.on('close', (code) => {
     event.sender.send('exe-output', `拉取配置文件结束状态码: ${code} <br>`);
     if (code === 0) {
+      event.sender.send('exe-output', '您现在运行的软件版本为：1.0.2<br>您现在运行的Frp内核为：0.58.1_a35ee10 <br>');
       serverProcess = spawn('powershell.exe', ['-NoProfile', '-Command', runScript]);
       serverProcess.stdout.on('data', (data) => event.sender.send('exe-output', data.toString()));
       serverProcess.stderr.on('data', (data) => event.sender.send('exe-output', `stderr: ${data.toString()}`));
